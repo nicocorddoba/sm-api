@@ -1,9 +1,12 @@
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
-from models import Farmacia, Turno
-from schemas import FarmaciaCreate, TurnoCreate, TurnoResponse
-from db.base import get_db
 from datetime import datetime, timedelta, time
+
+
+# FROM APP
+from app.models import Farmacia, Turno
+from app.schemas import FarmaciaCreate, TurnoCreate, TurnoResponse
+from app.db.base import get_db
 
 
 app = FastAPI()
@@ -32,10 +35,12 @@ def crear_turno(turnos: list[TurnoCreate], db: Session = Depends(get_db)):
         farmacia = db.query(Farmacia).filter_by(nombre=farmacia_schema.nombre).first()
         if not farmacia:
             farmacia = crear_farmacia(db, farmacia_schema)
+            print("ID de farmacia:", farmacia.id)
+            
 
         nuevo_turno = Turno(
             fecha=turno_data.fecha,
-            farmacia_id=farmacia.id
+            id_farmacia=farmacia.id
         )
         db.add(nuevo_turno)
     db.commit()
