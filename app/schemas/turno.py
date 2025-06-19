@@ -18,6 +18,6 @@ class TurnoResponse(BaseModel):
 class TurnoCreate(BaseModel):
     # id_farmacia: Optional[int] = Field(..., min_length=3, max_length=50)
     nombre_farmacia:  str = Field(..., min_length=3, max_length=50)
-    direccion_farmacia: Optional[str] = Field(..., min_length=3, max_length=50)
-    numero_farmacia: Optional[str] = Field(..., min_length=3, max_length=50)
+    direccion_farmacia: Optional[str] = Field(..., min_length=0, max_length=50)
+    numero_farmacia: Optional[str] = Field(..., min_length=0, max_length=50)
     fecha: date = Field(default=None)

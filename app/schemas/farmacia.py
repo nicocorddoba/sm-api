@@ -13,5 +13,5 @@ class FarmaciaResponse(BaseModel):
 # Esquema para crear un nuevo articulo
 class FarmaciaCreate(BaseModel):
     nombre: str = Field(..., min_length=3, max_length=50)
-    direccion: str = Field(..., min_length=3, max_length=100)
-    telefono: str = Field(..., min_length=3, max_length=20)
+    direccion: str = Field(..., min_length=0, max_length=100)
+    telefono: str = Field(..., min_length=0, max_length=50)
