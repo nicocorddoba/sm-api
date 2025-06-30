@@ -49,62 +49,16 @@ Carga un nuevo turno de farmacia en la base de datos.
 
 ```json
 {
-  "message": "Turno cargado correctamente"
+  "msg": "Turnos creados correctamente"
 }
 ```
 
-> 🔐 **Nota:** En producción, este endpoint debería estar autenticado para evitar modificaciones no deseadas.
-
 ---
-
-## ⚙️ Instalación y ejecución local
 
 ### 🧰 Requisitos
 
-- Python 3.10+
+- Python 3.13+
 - PostgreSQL
 - Docker (opcional pero recomendado)
 
----
-
-### 1. Cloná el repositorio
-
-```bash
-git clone https://github.com/tuusuario/sm-api.git
-cd sm-api
-```
-
----
-
-### 2. Configurá las variables de entorno
-
-Crear un archivo `.env` con tus credenciales de base de datos:
-
-```env
-DATABASE_URL=postgresql://usuario:contraseña@localhost:5432/smapi
-```
-
----
-
-### 3. Ejecutá migraciones
-
-```bash
-alembic upgrade head
-```
-
----
-
-### 4. Iniciá el servidor
-
-```bash
-uvicorn app.main:app --reload
-```
-
----
-
-## 🐳 Uso con Docker
-
-```bash
-docker build -t sm-api .
-docker run -d -p 8000:8000 --env-file .env sm-api
 ```
