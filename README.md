@@ -60,5 +60,3 @@ Carga un nuevo turno de farmacia en la base de datos.
 - Python 3.13+
 - PostgreSQL
 - Docker (opcional pero recomendado)
-
-```
